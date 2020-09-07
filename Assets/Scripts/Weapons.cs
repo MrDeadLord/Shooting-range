@@ -5,19 +5,21 @@ namespace DeadLords.Shooter
     /// <summary>
     /// Базовый клас для всего оружия
     /// </summary>
-    public abstract class Weapons : BaseEnvoirment
+    public class Weapons : BaseEnvoirment
     {
         #region Переменные
-        [SerializeField] [Tooltip("Точка вылета пули")] protected Transform _barrel;
+        [SerializeField] [Tooltip("Точка вылета пули")] private Transform _barrel;
 
-        [Space(10)] [SerializeField] [Tooltip("Скорость ускорения пули")] protected float _force = 500;
-        [SerializeField] [Tooltip("Время между выстрелами. Скорострельность")] protected float _rechargeTime = 0.2f;
-        [SerializeField] [Tooltip("Време перезарядки")] protected float _changeMagTime = 2f;
-        [SerializeField] [Tooltip("Кол-во патронов в обойме")] protected int[] _ammoCopacity = { 30, 30 };
+        [Space(10)] [SerializeField] [Tooltip("Скорость ускорения пули")] private float _force = 500;
+        [SerializeField] [Tooltip("Время между выстрелами. Скорострельность")] private float _rechargeTime = 0.2f;
+        [SerializeField] [Tooltip("Време перезарядки")] private float _changeMagTime = 2f;
+        [SerializeField] [Tooltip("Кол-во патронов в обойме")] private int[] _ammoCopacity = { 30, 30 };
 
-        [Space(10)] [Tooltip("Время удара ближнего боя")] public float _meleeTime = 2;
-        [Tooltip("Урон в ближнем бою")] public float _meleeDamage = 50;
-        [Space(10)] [SerializeField] [Tooltip("Видимость оружия при старте")] private bool _isVisibleOnStart;
+        [Space(10)]
+        [SerializeField] [Tooltip("Время удара ближнего боя")] private float _meleeTime = 2;
+        [SerializeField] [Tooltip("Урон в ближнем бою")] private float _meleeDamage = 50;
+        [Space(10)]
+        [SerializeField] [Tooltip("Видимость оружия при старте")] private bool _isVisibleOnStart;
 
         protected ParticleSystem _shootEffect;
         protected Animator _animator;
@@ -61,7 +63,7 @@ namespace DeadLords.Shooter
                     _animator.SetTrigger("Shoot");
 
                     bullet.GetComponent<Rigidbody>().AddForce(_barrel.forward * _force);
-                    bullet.Name = "Bullet";
+                    bullet.name = "Bullet";
                     _ammoCopacity[0] -= 1;
                     _canFire = false;
                     _timer.Start(_rechargeTime);

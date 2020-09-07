@@ -8,16 +8,22 @@ namespace DeadLords.Shooter
         [SerializeField] private float _dieTime = 10;
         [SerializeField] private float _mass = 0.1f;
         [SerializeField] private float _damage = 20;
-        [SerializeField] private ParticleSystem _hitEffect;
+        [SerializeField] private ParticleSystem _humanHitEffect;
+        [SerializeField] private ParticleSystem _surfaceHitEffect;
 
         private float _currentDamage;
 
-        protected override void Awake()
+        private void Awake()
         {
-            base.Awake();
-            Destroy(_gameObj, _dieTime);
+            Destroy(gameObject, _dieTime);
             _currentDamage = _damage;
-            GetRigidBody.mass = _mass;
+            GetComponent<Rigidbody>().mass = _mass;
+        }
+
+        private void Update()
+        {
+            if (_currentDamage > _damage / 2)
+                Destroy(gameObject);
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -28,10 +34,16 @@ namespace DeadLords.Shooter
             {
                 SetDamage(collision.gameObject.GetComponent<ISetDamage>());
 
-                Instantiate(_hitEffect, collision.transform.position, gameObject.transform.rotation);
+                Instantiate(_humanHitEffect, collision.transform.position, gameObject.transform.rotation);
+
+                Destroy(gameObject);
             }
-            
-            Destroy(_gameObj);
+            else if(collision.collider.tag == "thin surface")
+            {
+                _currentDamage /= 2;
+
+                Instantiate(_surfaceHitEffect, collision.transform.position, gameObject.transform.rotation);
+            }
         }
 
         private void SetDamage(ISetDamage obj)

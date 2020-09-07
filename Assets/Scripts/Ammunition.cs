@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace DeadLords.Shooter
 {
-    public abstract class Ammunition : MonoBehaviour
+    public class Ammunition : BaseEnvoirment
     {
         
     }

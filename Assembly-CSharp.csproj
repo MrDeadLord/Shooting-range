@@ -55,17 +55,17 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Main.cs" />
+    <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\Weapons.cs" />
     <Compile Include="Assets\Scripts\Ammunition.cs" />
-    <Compile Include="Assets\Scripts\Input Controller.cs" />
+    <Compile Include="Assets\Scripts\Controllers\InputController.cs" />
     <Compile Include="Assets\Scripts\Controllers\Base Controller.cs" />
+    <Compile Include="Assets\Scripts\Helpers\ObjectManager.cs" />
     <Compile Include="Assets\Scripts\ISetDamage.cs" />
     <Compile Include="Assets\Scripts\Controllers\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\Controllers\WeaponsController.cs" />
-    <Compile Include="Assets\Scripts\Helpers\Timer.cs" />
-    <Compile Include="Assets\Scripts\Main.cs" />
     <Compile Include="Assets\Scripts\BaseEnvoirment.cs" />
-    <Compile Include="Assets\Scripts\Bullet.cs" />
+    <Compile Include="Assets\Scripts\Helpers\Timer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
