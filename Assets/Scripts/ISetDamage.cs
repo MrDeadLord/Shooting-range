@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace DeadLords.Shooter.Interface
+﻿namespace DeadLords.Shooter.Interface
 {
     /// <summary>
     /// Нанесение урона

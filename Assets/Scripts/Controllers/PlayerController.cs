@@ -9,7 +9,7 @@ namespace DeadLords.Shooter.Controllers
         [Header("Camera settings")]
         [SerializeField] private float sensitivity = 300; //Чувствительность мыши. Параметр умножения
         [SerializeField] private float maxAngle = 80, minAngle = -80;
-        [SerializeField] private Camera _camera;
+        [SerializeField] private Transform _camera;
         private float mouseX, mouseY;
         private float rotX = 0;
 
@@ -31,20 +31,17 @@ namespace DeadLords.Shooter.Controllers
             //Disabling cursor
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-        }
 
-        private void Start()
-        {
             _charContr = GetComponent<CharacterController>();
         }
 
         private void Update()
         {
-            CameraMoving();
-
             if (!canMove)
                 return;
 
+            CameraMoving();
+            
             if (Input.GetButton("Run"))
                 CharacterMove(true);
             else
@@ -64,7 +61,7 @@ namespace DeadLords.Shooter.Controllers
             rotX -= mouseY;
             rotX = Mathf.Clamp(rotX, minAngle, maxAngle);
 
-            _camera.transform.localRotation = Quaternion.Euler(rotX, 0, 0);
+            _camera.localRotation = Quaternion.Euler(rotX, 0, 0);
             transform.Rotate(Vector3.up * mouseX);
         }
 
