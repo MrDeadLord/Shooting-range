@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace DeadLords.Shooter
 {
     [RequireComponent(typeof(Weapon))]
     public class Shooting : MonoBehaviour
     {
-        #region Variables
+        #region ========== Variables ========
         [SerializeField] [Tooltip("Стрелок")] ShooterType _shooter;
         [Space(10)]
         [SerializeField] [Tooltip("Точка вылета пули")] private Transform _barrel;
@@ -15,17 +14,20 @@ namespace DeadLords.Shooter
         [SerializeField] [Tooltip("Урон")] private float _damage = 20;
 
         Weapon _weap;
-        
-        #endregion Variables
+        Animator _animator;
+
+        #endregion ========== Variables ========
 
         #region Unity-time
         private void Start()
         {
             _weap = GetComponent<Weapon>();
+            _animator = GetComponentInChildren<Animator>();
         }
         #endregion Unity-time
 
-        #region Methods
+        #region ========== Methods ========
+
         public void Shoot(Ammunition ammunition)
         {            
             if (ammunition && _ammoCopacity[0] != 0)
@@ -35,7 +37,7 @@ namespace DeadLords.Shooter
                 if (bullet)
                 {
                     //_shootEffect.Play();
-                    //_animator.SetTrigger("Shoot");
+                    _animator.SetTrigger("Shoot");
 
                     bullet.GetComponent<Rigidbody>().AddForce(_barrel.transform.forward * _force);
                     bullet.shooter = _shooter;
@@ -49,7 +51,8 @@ namespace DeadLords.Shooter
                 _weap.Reload();
             }   //Перезарядка
         }
-        #endregion Methods
+
+        #endregion ========== Methods ========
 
         #region For editor
         /// <summary>

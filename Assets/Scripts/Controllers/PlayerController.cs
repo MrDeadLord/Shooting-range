@@ -5,7 +5,7 @@ namespace DeadLords.Shooter.Controllers
     [RequireComponent(typeof(CharacterController))]
     public class PlayerController : MonoBehaviour
     {
-        #region Переменные
+        #region ========== Variables ========
         [Header("Camera settings")]
         [SerializeField] private float sensitivity = 300; //Чувствительность мыши. Параметр умножения
         [SerializeField] private float maxAngle = 80, minAngle = -80;
@@ -23,7 +23,7 @@ namespace DeadLords.Shooter.Controllers
         [Header("Jump settings")]
         [SerializeField] private float jumpForce = 2;
         private float gravityForce;
-        #endregion
+        #endregion ========== Variables ========
 
         #region UnityTime
         void Awake()

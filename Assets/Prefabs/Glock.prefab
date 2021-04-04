@@ -55,6 +55,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -79,6 +80,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &856247719951519823
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,6 +127,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -224,6 +227,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
+  - {fileID: 4895573900610925460}
   - {fileID: 8314552225939712916}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -286,7 +290,7 @@ Transform:
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 8314552225939712916}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3297335112920844437
 GameObject:
@@ -405,6 +409,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -429,6 +434,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &7129154776426012699
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,12 +458,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7129154776426012699}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0504, z: 0.1022}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.0504, z: 0.10220001}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
-  m_Father: {fileID: 8314552225939712916}
-  m_RootOrder: 3
+  m_Father: {fileID: 8966952908963038197}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8658427152445845806
 GameObject:
@@ -492,10 +498,9 @@ Transform:
   - {fileID: 2988905326461743694}
   - {fileID: 8609345844549256025}
   - {fileID: 6893331526397979254}
-  - {fileID: 4895573900610925460}
   - {fileID: 6569207621877810403}
   m_Father: {fileID: 8966952908963038197}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &8424405655416642346
 Animator:
@@ -533,8 +538,7 @@ MonoBehaviour:
   _meleeTime: 2
   _meleeDamage: 50
   _isVisibleOnStart: 0
-  _changeMagTime: 1
-  bulletSet: {fileID: 5340058626909380129}
+  _reloadTime: 2
   magInstPlace: {fileID: 6569207621877810403}
   fullMag: {fileID: 3877044009486319084, guid: 7f57aa3c5e2d2eb498201117402a768b, type: 3}
   emptyMag: {fileID: 4475996810728396339, guid: f6a1af48f0729334eab991edc07489e0,

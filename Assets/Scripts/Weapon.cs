@@ -9,7 +9,8 @@ namespace DeadLords.Shooter
     [RequireComponent(typeof(Shooting))]
     public class Weapon : BaseEnvoirment
     {
-        #region Variables
+        #region ========== Variables ========
+
         [Header("Стрельба")]
         [SerializeField] [Tooltip("Автомат ли это?")] bool _auto = false;
         [SerializeField] [Tooltip("Время между выстрелами. Скорострельность")] private float _fireRate = 0.2f;
@@ -23,14 +24,14 @@ namespace DeadLords.Shooter
         [Space(10)]
         [Header("Перезарядка")]
         [SerializeField] [Tooltip("Време перезарядки")] private float _reloadTime = 2f;
-        [SerializeField] [Tooltip("Если при перезарядке есть потроны")] private Renderer bulletSet;     //ДОПИЛИТЬ
         [SerializeField] [Tooltip("Место появления обоймы в мире")] private Transform magInstPlace;
         [SerializeField] [Tooltip("Модель обоймы с патронами")] private GameObject fullMag;
         [SerializeField] [Tooltip("Модель пустой обоймы")] private GameObject emptyMag;
 
         protected Animator _animator;
         Shooting _shot;
-        #endregion Variables
+
+        #endregion ========== Variables ========
 
         #region Unity time
 
@@ -39,7 +40,6 @@ namespace DeadLords.Shooter
             if (_isVisibleOnStart)
             {
                 IsVisible = true;
-                bulletSet.enabled = false;
             }
             else
             {
@@ -85,7 +85,6 @@ namespace DeadLords.Shooter
             //Если обойма не пустая, то рендерим пули в обойме
             if (_shot.AmmoCopacity[0] > 0)
             {
-                //bulletSet.enabled = true;
                 StartCoroutine(InstMag(fullMag));
             }
             else

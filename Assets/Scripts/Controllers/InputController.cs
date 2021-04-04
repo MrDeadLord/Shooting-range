@@ -7,6 +7,8 @@ namespace DeadLords.Shooter.Controllers
     /// </summary>
     public class InputController : BaseController
     {
+        #region ========== Variables ========
+
         bool _isSelectedWeapon = true;
         int indexWeapon = 0;
         Light _light;
@@ -14,6 +16,8 @@ namespace DeadLords.Shooter.Controllers
         Ammunition[] _ammo;
 
         public bool canShoot { get; set; }
+
+        #endregion ========== Variables ========
 
         private void Start()
         {
@@ -72,7 +76,7 @@ namespace DeadLords.Shooter.Controllers
         /// </summary>
         void WeaponSelect()
         {
-            if (Input.GetButtonDown("First weapon"))
+            if (Input.GetButtonDown("Main weapon"))
             {
                 _gun[indexWeapon].IsVisible = false;
                 //_ammo[indexWeapon].IsVisible = false;
